@@ -4,6 +4,7 @@ package com.camilo.market.persistence.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -36,4 +37,14 @@ public class Producto {
 
     @Column
     private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
+
+    @OneToMany(mappedBy = "producto")
+    private List<ComprasProducto> comprasProductos;
+
+
+
 }

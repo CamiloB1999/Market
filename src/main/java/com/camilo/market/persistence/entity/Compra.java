@@ -8,6 +8,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Getter
@@ -33,4 +34,14 @@ public class Compra {
 
     private String comentario;
     private String estado;
+
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id",insertable = false, updatable = false)
+    private Cliente cliente;
+
+    @OneToMany(mappedBy = "compra")
+    private List<ComprasProducto> comprasProducto;
+
+
 }
