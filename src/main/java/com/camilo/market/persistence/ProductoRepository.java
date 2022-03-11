@@ -8,7 +8,6 @@ import com.camilo.market.persistence.entity.Producto;
 import com.camilo.market.persistence.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -49,7 +48,6 @@ public class ProductoRepository implements ProductRepository {
     public Optional<Product> getProduct(int productId) {
         return productoCrudRepository.findById(productId).map(producto -> mapper.toProduct(producto));
     }
-
 
     @Override
     public Product save(Product product) {
